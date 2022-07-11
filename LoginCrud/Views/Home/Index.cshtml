@@ -1,0 +1,41 @@
+﻿@model List<LoginCrud.DbCon.tbl_employee>
+@{
+    ViewBag.Title = "Index";
+}
+
+@Html.Raw(TempData["AMessage"])
+@Html.Raw(TempData["UMessage"])
+
+<h2>Employee Details</h2>
+<br />
+@Html.ActionLink("Add Employee","Create","Home", new { @class="btn btn-primary"})
+<br />
+
+<table class="table table-bordered table-responsive table-hover table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th>Address</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.name</td>
+            <td>@item.age</td>
+            <td>@item.gender</td>
+            <td>@item.email</td>
+            <td>@item.salary</td>
+            <td>@item.address</td>
+            <td>@Html.ActionLink("Edit", "Create", new { id = item.id }, new {@class="btn btn-secondary"})</td>
+            <td>@Html.ActionLink("Delete", "Delete", new { id = item.id }, new {@class="btn btn-danger"})</td>
+        </tr>
+    }
+</table>
+

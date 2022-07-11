@@ -1,0 +1,23 @@
+﻿@model LoginCrud.DbCon.tbl_user
+@{
+    ViewBag.Title = "SignUp";
+}
+
+@using (Html.BeginForm())
+{
+<div class="row">
+    <div style="margin-top:20px; padding-bottom:30px; padding-top:10px" class="col-md-3 col-md-offset-5 p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+        <h2 style="font-weight:bold; font-family:Forte; color:purple; padding-bottom:10px">Register</h2>
+        <p>@Html.TextBoxFor(model => model.name, new { @class = "form-control", @placeholder = "Enter Your Name" })</p>
+        <p>@Html.TextBoxFor(model => model.email, new { @class = "form-control", @placeholder = "Enter Your Email" })
+           @Html.ValidationMessageFor(model => model.email,"", new {@class="text-danger"})
+        </p>
+        <p>@Html.PasswordFor(model => model.password, new { @class = "form-control", @placeholder = "Enter Your Password" })
+           @Html.ValidationMessageFor(model => model.password,"", new {@class="text-danger"})
+        </p>
+
+        <input type="submit" value="Register" class="btn btn-primary" />
+    </div>
+</div>
+}
+

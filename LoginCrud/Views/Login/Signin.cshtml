@@ -1,0 +1,22 @@
+﻿@model LoginCrud.DbCon.tbl_user
+@{
+    ViewBag.Title = "Signin";
+}
+
+@Html.Raw(TempData["RMessage"])
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div style="margin-top:20px; padding-bottom:30px; padding-top:10px" class="col-md-3 col-md-offset-5 p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+            <h2 style="font-weight:bold; font-family:Forte; color:purple; padding-bottom:10px">  Login</h2>
+            <p class="text-danger">@TempData["ErrorMessage"]</p>
+            <p>@Html.TextBoxFor(model => model.email, new {@class="form-control", @placeholder="Enter Your Email"})</p>
+            <p>@Html.PasswordFor(model => model.password, new { @class = "form-control", @placeholder = "Enter Your Password" })</p>
+
+            <input type="submit" value="Login" class="btn btn-primary"/>
+        </div>
+    </div>
+}
+
+

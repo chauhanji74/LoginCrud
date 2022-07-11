@@ -1,0 +1,24 @@
+﻿@model LoginCrud.DbCon.tbl_employee
+@{
+    ViewBag.Title = "Create";
+}
+
+
+@using(Html.BeginForm())
+{ 
+    <div class="row">
+        <div class="col-md-3 col-md-offset-5 p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+            <h2 style="font-weight:bold; font-family:Forte; color:purple; padding-bottom:10px">@TempData["Title"]</h2>
+            <p>@Html.HiddenFor(model => model.id, new { @class = "form-control", @placeholder = "Enter Your id" })</p>
+            <p>@Html.TextBoxFor(model => model.name, new { @class = "form-control", @placeholder = "Enter Your Name" })</p>
+            <p>@Html.TextBoxFor(model => model.age, new { @class = "form-control", @placeholder = "Enter Your Age" })</p>
+            <p>@Html.TextBoxFor(model => model.gender, new { @class = "form-control", @placeholder = "Enter Your Gender" })</p>
+            <p>@Html.TextBoxFor(model => model.email, new { @class = "form-control", @placeholder = "Enter Your Email" })</p>
+            <p>@Html.TextBoxFor(model => model.salary, new { @class = "form-control", @placeholder = "Enter Your Salary" })</p>
+            <p>@Html.TextBoxFor(model => model.address, new { @class = "form-control", @placeholder = "Enter Your Address" })</p>
+
+            <input type="submit" value="@TempData["Title"]" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
